@@ -46,16 +46,17 @@
             display-name = "NUMBER";
 
             // -----------------------------------------------------------------------------------------
-            // |      |  [  |  7  |  8  |  9  |  ]   |        |       |      |      |     |     |     |      |
-            // |      |  ;  |  4  |  5  |  6  |  =   |        |       | LFT  | DWN  | UP  | RGT |     |      |
-            // |      |  `  |  1  |  2  |  3  |  \   |        |       |      |      |     |     |     |      |
-            //                    |  .  |  0  |  -    |        | ENT   | BSPC| DEL |
+            // |      |  [  |  7  |  8  |  9  |  ]   |        |       |      |      |      |      |      |      |
+            // |      |  ;  |  4  |  5  |  6  |  =   |        |       |      | SHFT | CMD  | ALT  | CTRL |      |
+            // |      |  `  |  1  |  2  |  3  |  \   |        |       |      |      |      |      |      |      |
+            //                    |     |  0  |  /    |        | ENT   | BSPC |     |
 
             bindings = <
-&trans  &kp LBKT   &kp N7  &kp N8  &kp N9  &kp RBKT   &trans  &trans  &trans   &trans      &trans             &trans         &trans             &trans
-&trans  &kp SEMI   &kp N4  &kp N5  &kp N6  &kp EQUAL  &trans  &trans  &none    &kp LSHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &trans
-&trans  &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp BSLH                   &trans   &trans      &trans             &trans         &trans             &trans
+&none  &kp LBKT   &kp N7  &kp N8  &kp N9  &kp RBKT   &none  &none  &none   &none      &none             &none         &none             &none
+&none  &kp SEMI   &kp N4  &kp N5  &kp N6  &kp EQUAL  &none  &none  &none    &kp LSHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &none
+&none  &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp BSLH                   &none   &none      &none             &none         &none             &none
                            &none   &kp N0  &kp SLASH                  &kp RET  &kp BSPC    &none
+
             >;
         };
 
@@ -63,26 +64,27 @@
             display-name = "SYMBOL";
 
             // -----------------------------------------------------------------------------------------
-            // |      | F1  | F2  | F3  | F4  | F5  | LCTRL | RCTRL |      |      |      |      |     |      |
-            // |      | F6  | F7  | F8  | F9  | F10 |  LALT | RALT  | CAPS | SHFT | CTRL | ALT  | CMD |      |
-            // |      | F11 | F12 |     |     |     |               |      |      |      |      |     |      |
+            // |      | F12 | F7  | F8  | F9  |      | LCTRL | RCTRL |      |      |      |      |      |      |
+            // |      | F11 | F4  | F5  | F6  |      |  LALT | RALT  |      | SHFT | CMD  | ALT  | CTRL |      |
+            // |      | F10 | F1  | F2  | F3  |      |               |      |      |      |      |      |      |
             //                    | ESC | SPC | TAB |               | ENT |     | DEL |
 
             bindings = <
-&trans  &kp F1   &kp F2   &kp F3   &kp F4     &kp F5   &kp LCTRL  &kp RCTRL  &trans   &trans     &trans             &trans         &trans             &trans
-&trans  &kp F6   &kp F7   &kp F8   &kp F9     &kp F10  &kp LALT   &kp RALT   &none    &kp RSHFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &trans
-&trans  &kp F11  &kp F12  &trans   &trans     &trans                         &trans   &trans     &trans             &trans         &trans             &trans
-                          &kp ESC  &kp SPACE  &kp TAB                        &kp RET  &trans     &kp DEL
+&none  &kp F12  &kp F7  &kp F8  &kp F9  &none  &kp LCTRL  &kp RCTRL  &none   &none     &none              &none          &none              &none
+&none  &kp F11  &kp F4  &kp F5  &kp F6  &none  &kp LALT   &kp RALT   &none   &kp RSHFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &none
+&none  &kp F10  &kp F1  &kp F2  &kp F3  &none                         &none   &none     &none              &none          &none              &none
+                          &kp ESC  &kp SPACE  &kp TAB                        &kp RET  &none     &kp DEL
+
             >;
         };
 
         Gaming {
             display-name = "GAMING";
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E         &kp R      &kp T   &trans  &trans  &kp C_PREV  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &trans  &trans
-&kp LEFT_SHIFT  &kp A  &kp S  &kp D         &kp F      &kp G   &trans  &trans  &kp H       &trans             &trans           &trans      &trans  &trans
-&kp LEFT_GUI    &kp Z  &kp X  &kp C         &kp V      &none                   &trans      &trans             &trans           &trans      &trans  &trans
-                              &kp LEFT_ALT  &kp SPACE  &trans                  &trans      &trans             &trans
+&kp TAB         &kp Q  &kp W  &kp E         &kp R      &kp T   &none  &none  &kp C_PREV  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &none  &none
+&kp LEFT_SHIFT  &kp A  &kp S  &kp D         &kp F      &kp G   &none  &none  &kp H       &none             &none           &none      &none  &none
+&kp LEFT_GUI    &kp Z  &kp X  &kp C         &kp V      &none                   &none      &none             &none           &none      &none  &none
+                              &kp LEFT_ALT  &kp SPACE  &none                  &none      &none             &none
             >;
         };
 
@@ -96,10 +98,11 @@
             //                    |     |     |     |               |     |     |     |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp C_PREV      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT      &kp C_PP  &bt BT_SEL 0
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &trans    &bt BT_SEL 1
-&trans  &trans  &trans  &trans  &trans  &trans                  &kp LC(LA(N5))  &kp LC(LA(N6))  &kp LC(LA(N7))  &kp LC(LA(N8))  &trans    &bt BT_SEL 2
-                        &trans  &trans  &trans                  &trans          &trans          &trans
+&none  &none  &none  &none  &none  &none  &none  &none  &kp C_PREV      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT      &kp C_PP  &bt BT_SEL 0
+&none  &none  &none  &none  &none  &none  &none  &none  &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &none    &bt BT_SEL 1
+&none  &none  &none  &none  &none  &none                  &kp LC(LA(N5))  &kp LC(LA(N6))  &kp LC(LA(N7))  &kp LC(LA(N8))  &none    &bt BT_SEL 2
+                        &none  &none  &none                  &none          &none          &none
+
             >;
         };
     };
