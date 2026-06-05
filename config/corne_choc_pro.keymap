@@ -36,13 +36,13 @@
             // --------------------------------------------------------------------------------
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |  MUTE |  PP   |  Y  |  U   |  I  |  O  |  P  | GAME |
             // | CAPS | A/CTL | S/ALT | D/CMD | F/SFT |  G  |  LALT |      |  H  | J/SFT | K/CMD | L/ALT | ;/CTL | KWin |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |               |  N  |  M   |  ,  |  .  |  /  | OSWin |
+            // | SHFT |  Z  |  X  |  C  |  V  |  B  |               |  N  |  M   |  ,  |  .  |  -  | OSWin |
             //                    | ESC/L5 | SPC | TAB/L4 |        | ENT/L1 | BSPC/L2 | DEL |
 
             bindings = <
 &kp TAB         &kp Q  &kp W  &kp E       &kp R        &kp T      &kp C_MUTE  &kp C_PP  &kp Y      &kp U       &kp I      &kp O    &kp P     &tog GAMING
 &kp CAPS        &mt LCTRL A  &mt LALT S  &mt LEFT_COMMAND D  &mt LSHIFT F  &kp G      &kp LALT    &none     &kp H      &mt RSHFT J  &mt RIGHT_COMMAND K  &mt RIGHT_ALT L  &mt RIGHT_CONTROL SEMI  &kp LC(LS(GRAVE))
-&kp LSHFT       &kp Z  &kp X  &kp C       &kp V        &kp B                            &kp N      &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp LG(GRAVE)
+&kp LSHFT       &kp Z  &kp X  &kp C       &kp V        &kp B                            &kp N      &kp M       &kp COMMA  &kp DOT  &kp MINUS  &kp LG(GRAVE)
                               &kp ESCAPE  &lt 5 SPACE  &lt 4 TAB                        &lt 1 RET  &lt 2 BSPC  &kp DEL
             >;
 
