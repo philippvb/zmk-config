@@ -52,10 +52,10 @@
             //                    |  .  |  0  |  -    |        | ENT   | BSPC| DEL |
 
             bindings = <
-&trans  &kp LBKT   &kp N7  &kp N8   &kp N9  &kp RBKT   &trans  &trans  &trans   &trans      &trans             &trans         &trans             &trans
-&trans  &kp SEMI   &kp N4  &kp N5   &kp N6  &kp EQUAL  &trans  &trans  &none    &kp LSHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &trans
-&trans  &kp GRAVE  &kp N1  &kp N2   &kp N3  &kp BSLH                   &trans   &trans      &trans             &trans         &trans             &trans
-                           &kp DOT  &kp N0  &kp MINUS                  &kp RET  &kp BSPC    &kp DEL
+&trans  &kp LBKT   &kp N7  &kp N8  &kp N9  &kp RBKT   &trans  &trans  &trans   &trans      &trans             &trans         &trans             &trans
+&trans  &kp SEMI   &kp N4  &kp N5  &kp N6  &kp EQUAL  &trans  &trans  &none    &kp LSHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &trans
+&trans  &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp BSLH                   &trans   &trans      &trans             &trans         &trans             &trans
+                           &none   &kp N0  &kp SLASH                  &kp RET  &kp BSPC    &none
             >;
         };
 
