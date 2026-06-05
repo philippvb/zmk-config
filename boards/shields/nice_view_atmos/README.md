@@ -6,7 +6,9 @@ This shield requires that an `&nice_view_spi` labeled SPI bus is provided with _
 
 ## Regenerate slideshow art
 
-The right-half slideshow art is generated from source images with Pillow via `uv`:
+The right-half slideshow art is generated from source images with Pillow via
+`uv`. First create the hand-tuned portrait compositions with moon and star
+placement:
 
 ```sh
 AGENT="/Users/philippvonbachmann/Documents/atmos/atmOS/apps/web/public/images/mascot/agent-builder"
@@ -33,19 +35,28 @@ IMAGES=(
   "$AGENT/avatar-automation-v1.png"
 )
 
-uv run --with pillow tools/convert_nice_view_art.py \
-  --output-c boards/shields/nice_view_atmos/widgets/art.c \
-  --output-h boards/shields/nice_view_atmos/widgets/art.h \
-  --preview-dir /Users/philippvonbachmann/Documents/Codex/2026-06-05/i-have-a-new-corne-keyboard/outputs/atmos-nice-view-preview \
-  --preview-inverted \
-  --rotate 90 \
-  --safe-width 92 \
-  --margin 4 \
+DECORATED="/tmp/atmos-decorated-sources"
+PREVIEW="/tmp/atmos-decorated-preview"
+
+uv run --with pillow tools/decorate_atmos_sources.py \
+  --output-dir "$DECORATED" \
+  --preview-dir "$PREVIEW" \
   "${IMAGES[@]}"
 ```
 
-The `--rotate 90` option compensates for the Corne right display mount. The
-safe width keeps art out from under the battery/connection canvas.
+Then convert the approved decorated frames into LVGL image descriptors:
+
+```sh
+uv run --with pillow tools/convert_nice_view_art.py \
+  --output-c boards/shields/nice_view_atmos/widgets/art.c \
+  --output-h boards/shields/nice_view_atmos/widgets/art.h \
+  --preview-dir /tmp/atmos-nice-view-preview \
+  --preview-inverted \
+  "$DECORATED"/atmos_avatar_*.png
+```
+
+`tools/decorate_atmos_sources.py` creates raw `140x68` frames for the Corne
+right display mount, while keeping the top battery/connection canvas clear.
 
 ## Disable custom widget
 

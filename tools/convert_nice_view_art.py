@@ -33,6 +33,8 @@ def c_ident(path: Path, prefix: str) -> str:
         stem = "frame"
     if stem[0].isdigit():
         stem = f"frame_{stem}"
+    if prefix and stem.startswith(f"{prefix}_"):
+        return stem
     return f"{prefix}_{stem}"
 
 
