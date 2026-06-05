@@ -38,11 +38,12 @@ uv run --with pillow tools/convert_nice_view_art.py \
   --output-h boards/shields/nice_view_atmos/widgets/art.h \
   --preview-dir /Users/philippvonbachmann/Documents/Codex/2026-06-05/i-have-a-new-corne-keyboard/outputs/atmos-nice-view-preview \
   --preview-inverted \
+  --rotate 90 \
   "${IMAGES[@]}"
 ```
 
-The converter also accepts `--rotate 90`, `--rotate 180`, or `--rotate 270` if a
-specific keyboard mount needs the generated art turned.
+The `--rotate 90` option compensates for the Corne right display mount. The
+converter also accepts `--rotate 180` or `--rotate 270` for other mounts.
 
 ## Disable custom widget
 
