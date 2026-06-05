@@ -7,7 +7,6 @@ Run with uv, for example:
     --output-h boards/shields/nice_view_atmos/widgets/art.h \
     --preview-dir outputs/atmos-preview \
     --preview-inverted \
-    --rotate 90 \
     path/to/image-1.png path/to/image-2.png
 """
 
