@@ -33,10 +33,10 @@
             //                    | ESC/L4 | SPC | TAB |            | ENT/L2 | BSPC/L1 | DEL |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E      &kp R      &kp T      &kp C_MUTE  &kp C_PP  &kp Y      &kp U       &kp I      &kp O    &kp P     &studio_unlock
-&kp CAPS   &kp A  &kp S  &kp D      &kp F      &kp G      &kp LALT    &mo 3     &kp H      &kp J       &kp K      &kp L    &kp SEMI  &kp LC(LS(GRAVE))
-&kp LSHFT  &kp Z  &kp X  &kp C      &kp V      &kp B                            &kp N      &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp LG(GRAVE)
-                         &lt 4 ESC  &kp SPACE  &lt 4 TAB                        &lt 1 RET  &lt 2 BSPC  &kp DEL
+&studio_unlock  &kp Q  &kp W  &kp E       &kp R      &kp T      &kp C_MUTE  &kp C_PP  &kp Y      &kp U       &kp I      &kp O    &kp P     &to 3
+&kp CAPS        &kp A  &kp S  &kp D       &kp F      &kp G      &kp LALT    &mo 3     &kp H      &kp J       &kp K      &kp L    &kp SEMI  &kp LC(LS(GRAVE))
+&kp LSHFT       &kp Z  &kp X  &kp C       &kp V      &kp B                            &kp N      &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp LG(GRAVE)
+                              &kp ESCAPE  &kp SPACE  &lt 4 TAB                        &lt 1 RET  &lt 2 BSPC  &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -79,7 +79,7 @@
         Gaming {
             display-name = "GAMING";
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E         &kp R      &kp T  &none  &none  &kp C_PREV  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &none  &none
+&kp TAB         &kp Q  &kp W  &kp E         &kp R      &kp T  &none  &none  &kp C_PREV  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &none  &to 0
 &kp LEFT_SHIFT  &kp A  &kp S  &kp D         &kp F      &kp G  &none  &none  &kp H       &none              &none            &none       &none  &none
 &kp LEFT_GUI    &kp Z  &kp X  &kp C         &kp V      &none                &none       &none              &none            &none       &none  &none
                               &kp LEFT_ALT  &kp SPACE  &none                &none       &none              &none
