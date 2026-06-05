@@ -30,13 +30,13 @@
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |  MUTE |  PP   |  Y  |  U   |  I  |  O  |  P  | Unlock |
             // | CAPS |  A  |  S  |  D  |  F  |  G  |  LALT | GAME |  H  |  J   |  K  |  L  |  ;  | KWin |
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |               |  N  |  M   |  ,  |  .  |  /  | OSWin |
-            //                    | ESC/L4 | SPC | TAB |            | ENT/L2 | BSPC/L1 | DEL |
+            //                    | ESC/L5 | SPC | TAB/L4 |        | ENT/L1 | BSPC/L2 | DEL |
 
             bindings = <
 &studio_unlock  &kp Q  &kp W  &kp E       &kp R      &kp T      &kp C_MUTE  &kp C_PP  &kp Y      &kp U       &kp I      &kp O    &kp P     &to 3
 &kp CAPS        &kp A  &kp S  &kp D       &kp F      &kp G      &kp LALT    &mo 3     &kp H      &kp J       &kp K      &kp L    &kp SEMI  &kp LC(LS(GRAVE))
 &kp LSHFT       &kp Z  &kp X  &kp C       &kp V      &kp B                            &kp N      &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp LG(GRAVE)
-                              &kp ESCAPE  &kp SPACE  &lt 4 TAB                        &lt 1 RET  &lt 2 BSPC  &kp DEL
+                              &lt 5 ESCAPE  &kp SPACE  &lt 4 TAB                        &lt 1 RET  &lt 2 BSPC  &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -91,15 +91,33 @@
 
             // -----------------------------------------------------------------------------------------
             // |      |     |     |     |     |     |       |       | PREV | VOLD | VOLU | NEXT | PP  | BT1  |
-            // |      |     |     |     |     |     |       |       | Tab1 | Tab2 | Tab3 | Tab4 |     | BT2  |
-            // |      |     |     |     |     |     |               | Tab5 | Tab6 | Tab7 | Tab8 |     | BT3  |
+            // |      |     |     |     |     |     |       |       |      |      |      |      |     | BT2  |
+            // |      |     |     |     |     |     |               |      |      |      |      |     | BT3  |
             //                    |     |     |     |               |     |     |     |
 
             bindings = <
 &none  &none  &none  &none  &none  &none  &none  &none  &kp C_PREV      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT      &kp C_PP  &bt BT_SEL 0
-&none  &none  &none  &none  &none  &none  &none  &none  &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &none     &bt BT_SEL 1
-&none  &none  &none  &none  &none  &none                &kp LC(LA(N5))  &kp LC(LA(N6))  &kp LC(LA(N7))  &kp LC(LA(N8))  &none     &bt BT_SEL 2
-                     &none  &none  &none                &none           &none           &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none           &none           &none           &none           &none    &bt BT_SEL 1
+&none  &none  &none  &none  &none  &none                  &none           &none           &none           &none           &none    &bt BT_SEL 2
+                        &none  &none  &none                  &none          &none          &none
+
+            >;
+        };
+
+        KittyTabs {
+            display-name = "KITTY";
+
+            // -----------------------------------------------------------------------------------------
+            // |      |     |     |     |     |     |       |       |      |      |      |      |     |      |
+            // |      |     |     |     |     |     |       |       | Tab1 | Tab2 | Tab3 | Tab4 |     |      |
+            // |      |     |     |     |     |     |               | Tab5 | Tab6 | Tab7 | Tab8 |     |      |
+            //                    |     |     |     |               |     |     |     |
+
+            bindings = <
+&none  &none  &none  &none  &none  &none  &none  &none  &none           &none           &none           &none           &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &none  &none
+&none  &none  &none  &none  &none  &none                  &kp LC(LA(N5))  &kp LC(LA(N6))  &kp LC(LA(N7))  &kp LC(LA(N8))  &none  &none
+                        &none  &none  &none                  &none          &none          &none
             >;
         };
     };
