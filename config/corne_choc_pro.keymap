@@ -33,10 +33,10 @@
             //                    | ESC/L4 | SPC | TAB |            | ENT/L2 | BSPC/L1 | DEL |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E      &kp R      &kp T    &kp C_MUTE  &kp C_PP  &kp Y      &kp U       &kp I      &kp O    &kp P     &studio_unlock
-&kp CAPS   &kp A  &kp S  &kp D      &kp F      &kp G    &kp LALT    &mo 3     &kp H      &kp J       &kp K      &kp L    &kp SEMI  &kp LC(LS(GRAVE))
-&kp LSHFT  &kp Z  &kp X  &kp C      &kp V      &kp B                          &kp N      &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp LG(GRAVE)
-                         &lt 4 ESC  &kp SPACE  &kp TAB                        &lt 2 RET  &lt 1 BSPC  &kp DEL
+&kp TAB    &kp Q  &kp W  &kp E      &kp R      &kp T      &kp C_MUTE  &kp C_PP  &kp Y      &kp U       &kp I      &kp O    &kp P     &studio_unlock
+&kp CAPS   &kp A  &kp S  &kp D      &kp F      &kp G      &kp LALT    &mo 3     &kp H      &kp J       &kp K      &kp L    &kp SEMI  &kp LC(LS(GRAVE))
+&kp LSHFT  &kp Z  &kp X  &kp C      &kp V      &kp B                            &kp N      &kp M       &kp COMMA  &kp DOT  &kp FSLH  &kp LG(GRAVE)
+                         &lt 4 ESC  &kp SPACE  &lt 4 TAB                        &lt 1 RET  &lt 2 BSPC  &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -52,11 +52,10 @@
             //                    |     |  0  |  /    |        | ENT   | BSPC |     |
 
             bindings = <
-&none  &kp LBKT   &kp N7  &kp N8  &kp N9  &kp RBKT   &none  &none  &none   &none      &none             &none         &none             &none
+&none  &kp LBKT   &kp N7  &kp N8  &kp N9  &kp RBKT   &none  &none  &none    &none       &none              &none          &none              &none
 &none  &kp SEMI   &kp N4  &kp N5  &kp N6  &kp EQUAL  &none  &none  &none    &kp LSHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &none
-&none  &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp BSLH                   &none   &none      &none             &none         &none             &none
-                           &none   &kp N0  &kp SLASH                  &kp RET  &kp BSPC    &none
-
+&none  &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp BSLH                 &none    &none       &none              &none          &none              &none
+                          &none   &kp N0  &kp SLASH                &kp RET  &kp BSPC    &none
             >;
         };
 
@@ -70,21 +69,20 @@
             //                    | ESC | SPC | TAB |               | ENT |     | DEL |
 
             bindings = <
-&none  &kp F12  &kp F7  &kp F8  &kp F9  &none  &kp LCTRL  &kp RCTRL  &none   &none     &none              &none          &none              &none
-&none  &kp F11  &kp F4  &kp F5  &kp F6  &none  &kp LALT   &kp RALT   &none   &kp RSHFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &none
-&none  &kp F10  &kp F1  &kp F2  &kp F3  &none                         &none   &none     &none              &none          &none              &none
-                          &kp ESC  &kp SPACE  &kp TAB                        &kp RET  &none     &kp DEL
-
+&none  &kp F12  &kp F7  &kp F8   &kp F9     &none    &kp LCTRL  &kp RCTRL  &none    &none      &none              &none          &none              &none
+&none  &kp F11  &kp F4  &kp F5   &kp F6     &none    &kp LALT   &kp RALT   &none    &kp RSHFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &none
+&none  &kp F10  &kp F1  &kp F2   &kp F3     &none                          &none    &none      &none              &none          &none              &none
+                        &kp ESC  &kp SPACE  &kp TAB                        &kp RET  &none      &kp DEL
             >;
         };
 
         Gaming {
             display-name = "GAMING";
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E         &kp R      &kp T   &none  &none  &kp C_PREV  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &none  &none
-&kp LEFT_SHIFT  &kp A  &kp S  &kp D         &kp F      &kp G   &none  &none  &kp H       &none             &none           &none      &none  &none
-&kp LEFT_GUI    &kp Z  &kp X  &kp C         &kp V      &none                   &none      &none             &none           &none      &none  &none
-                              &kp LEFT_ALT  &kp SPACE  &none                  &none      &none             &none
+&kp TAB         &kp Q  &kp W  &kp E         &kp R      &kp T  &none  &none  &kp C_PREV  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &none  &none
+&kp LEFT_SHIFT  &kp A  &kp S  &kp D         &kp F      &kp G  &none  &none  &kp H       &none              &none            &none       &none  &none
+&kp LEFT_GUI    &kp Z  &kp X  &kp C         &kp V      &none                &none       &none              &none            &none       &none  &none
+                              &kp LEFT_ALT  &kp SPACE  &none                &none       &none              &none
             >;
         };
 
@@ -99,10 +97,9 @@
 
             bindings = <
 &none  &none  &none  &none  &none  &none  &none  &none  &kp C_PREV      &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT      &kp C_PP  &bt BT_SEL 0
-&none  &none  &none  &none  &none  &none  &none  &none  &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &none    &bt BT_SEL 1
-&none  &none  &none  &none  &none  &none                  &kp LC(LA(N5))  &kp LC(LA(N6))  &kp LC(LA(N7))  &kp LC(LA(N8))  &none    &bt BT_SEL 2
-                        &none  &none  &none                  &none          &none          &none
-
+&none  &none  &none  &none  &none  &none  &none  &none  &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &none     &bt BT_SEL 1
+&none  &none  &none  &none  &none  &none                &kp LC(LA(N5))  &kp LC(LA(N6))  &kp LC(LA(N7))  &kp LC(LA(N8))  &none     &bt BT_SEL 2
+                     &none  &none  &none                &none           &none           &none
             >;
         };
     };
