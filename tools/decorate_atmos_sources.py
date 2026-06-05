@@ -18,7 +18,7 @@ from PIL import Image, ImageDraw, ImageOps
 
 RAW_SIZE = (140, 68)
 MOUNTED_SIZE = (68, 140)
-STATUS_HEIGHT = 28
+STATUS_HEIGHT = 52
 
 
 @dataclass(frozen=True)
@@ -87,21 +87,21 @@ def decorate(canvas: Image.Image, art_bbox: tuple[int, int, int, int], placement
     draw = ImageDraw.Draw(canvas)
     left, top, right, _ = art_bbox
     center = (left + right) // 2
-    moon_y = max(STATUS_HEIGHT + 3, top - 18 + placement.moon_dy)
+    moon_y = max(STATUS_HEIGHT + 2, top - 14 + placement.moon_dy)
 
     if placement.moon_side == "left":
         moon_x = max(5, left - 2 + placement.moon_dx)
         star_positions = [
-            (min(62, center + 9), moon_y + 1, 1),
-            (min(62, center + 20), moon_y + 7, 0),
-            (max(5, moon_x - 3), moon_y + 13, 0),
+            (min(62, center + 9), moon_y + 2, 1),
+            (min(62, center + 20), moon_y + 8, 0),
+            (max(5, moon_x - 3), moon_y + 14, 0),
         ]
     else:
         moon_x = min(55, right - 8 + placement.moon_dx)
         star_positions = [
-            (max(5, center - 9), moon_y + 1, 1),
+            (max(5, center - 9), moon_y + 2, 1),
             (max(5, center - 21), moon_y + 8, 0),
-            (min(62, moon_x + 11), moon_y + 13, 0),
+            (min(62, moon_x + 11), moon_y + 14, 0),
         ]
 
     draw_crescent(draw, moon_x, moon_y, 8)
@@ -115,7 +115,7 @@ def compose(path: Path, threshold: int) -> Image.Image:
     art = line_art(path, threshold)
 
     max_w = 62
-    max_h = int(90 * placement.scale)
+    max_h = int(66 * placement.scale)
     art.thumbnail((max_w, max_h), Image.Resampling.NEAREST)
 
     canvas = Image.new("1", MOUNTED_SIZE, 1)
