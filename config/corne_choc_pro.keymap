@@ -32,12 +32,12 @@
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |  MUTE |  PP   |  Y  |  U   |  I  |  O  |  P  | Unlock |
             // | CAPS |  A  |  S  |  D  |  F  |  G  |  LALT | GAME |  H  |  J   |  K  |  L  |  ;  | KWin |
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |               |  N  |  M   |  ,  |  .  |  /  | OSWin |
-            //                    | ESC | SPC/L1 | TAB |            | ENT | BSPC/L2 | DEL |
+            //                    | ESC/L4 | SPC | TAB |            | ENT/L2 | BSPC/L1 | DEL |
             bindings = <
                 &kp TAB   &kp Q &kp W &kp E &kp R &kp T &kp C_MUTE &kp C_PP &kp Y &kp U  &kp I     &kp O   &kp P    &studio_unlock
                 &kp CAPS  &kp A &kp S &kp D &kp F &kp G &kp LALT   &mo 3    &kp H &kp J  &kp K     &kp L   &kp SEMI &kp LC(LS(GRAVE))
                 &kp LSHFT &kp Z &kp X &kp C &kp V &kp B                     &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp LG(GRAVE)
-                                      &kp ESC &lt 1 SPACE &kp TAB           &kp RET &lt 2 BSPC &kp DEL
+                                      &lt 4 ESC &kp SPACE &kp TAB           &lt 2 RET &lt 1 BSPC &kp DEL
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
         };
@@ -45,29 +45,29 @@
         lower_layer {
             display-name = "NUMBER";
             // -----------------------------------------------------------------------------------------
-            // |      |  1  |  2  |  3  |  4  |  5   |        |       |      |      |     |     |     |      |
-            // |      |  6  |  7  |  8  |  9  |  0   |        |       | LFT  | DWN  | UP  | RGT |     |      |
-            // |      | BTCR| RGB | RST | BOOT|      |        |       |      |      |     |     |     |      |
-            //                    | ESC |     | TAB   |        | ENT   | BSPC| DEL |
+            // |      |  [  |  7  |  8  |  9  |  ]   |        |       |      |      |     |     |     |      |
+            // |      |  ;  |  4  |  5  |  6  |  =   |        |       | LFT  | DWN  | UP  | RGT |     |      |
+            // |      |  `  |  1  |  2  |  3  |  \   |        |       |      |      |     |     |     |      |
+            //                    |  .  |  0  |  -    |        | ENT   | BSPC| DEL |
             bindings = <
-                &trans &kp N1       &kp N2          &kp N3       &kp N4       &kp N5       &trans &trans &trans   &trans   &trans &trans    &trans &trans
-                &trans &kp N6       &kp N7          &kp N8       &kp N9       &kp N0       &trans &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-                &trans &bt BT_CLR   &rgb_ug RGB_TOG &sys_reset   &bootloader  &trans                     &trans   &trans   &trans &trans    &trans &trans
-                                                       &kp ESC      &trans       &kp TAB                          &kp RET &kp BSPC &kp DEL
+                &trans &kp LBKT  &kp N7 &kp N8 &kp N9 &kp RBKT  &trans &trans &trans   &trans   &trans &trans    &trans &trans
+                &trans &kp SEMI  &kp N4 &kp N5 &kp N6 &kp EQUAL &trans &trans &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+                &trans &kp GRAVE &kp N1 &kp N2 &kp N3 &kp BSLH                &trans   &trans   &trans &trans    &trans &trans
+                                               &kp DOT &kp N0 &kp MINUS                       &kp RET &kp BSPC &kp DEL
             >;
         };
 
         raise_layer {
             display-name = "SYMBOL";
             // -----------------------------------------------------------------------------------------
-            // |      | F1  | F2  | F3  | F4  | F5  | LCTRL | RCTRL | PREV | VOLD | VOLU | NEXT | PP  | BT1  |
-            // |      | F6  | F7  | F8  | F9  | F10 |  LALT | RALT  | Tab1 | Tab2 | Tab3 | Tab4 |     | BT2  |
-            // |      | F11 | F12 |     |     |     |               | Tab5 | Tab6 | Tab7 | Tab8 |     | BT3  |
+            // |      | F1  | F2  | F3  | F4  | F5  | LCTRL | RCTRL |      |      |      |      |     |      |
+            // |      | F6  | F7  | F8  | F9  | F10 |  LALT | RALT  | CAPS | SHFT | CTRL | ALT  | CMD |      |
+            // |      | F11 | F12 |     |     |     |               |      |      |      |      |     |      |
             //                    | ESC | SPC | TAB |               | ENT |     | DEL |
             bindings = <
-                &trans &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp LCTRL &kp RCTRL &kp C_PREV     &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &kp C_PP &bt BT_SEL 0
-                &trans &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp LALT  &kp RALT  &kp LC(LA(N1)) &kp LC(LA(N2)) &kp LC(LA(N3)) &kp LC(LA(N4)) &trans   &bt BT_SEL 1
-                &trans &kp F11 &kp F12 &trans  &trans  &trans                      &kp LC(LA(N5)) &kp LC(LA(N6)) &kp LC(LA(N7)) &kp LC(LA(N8)) &trans   &bt BT_SEL 2
+                &trans &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp LCTRL &kp RCTRL &trans   &trans    &trans    &trans   &trans   &trans
+                &trans &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp LALT  &kp RALT  &kp CAPS &kp RSHFT &kp RCTRL &kp RALT &kp RGUI &trans
+                &trans &kp F11 &kp F12 &trans  &trans  &trans                     &trans   &trans    &trans    &trans   &trans   &trans
                                           &kp ESC  &kp SPACE &kp TAB                      &kp RET   &trans    &kp DEL
             >;
         };
@@ -83,12 +83,17 @@
         };
 
         extra_layer_2 {
-            display-name = "EXTRA 2";
+            display-name = "CONTROLS";
+            // -----------------------------------------------------------------------------------------
+            // |      |     |     |     |     |     |       |       | PREV | VOLD | VOLU | NEXT | PP  | BT1  |
+            // |      |     |     |     |     |     |       |       | Tab1 | Tab2 | Tab3 | Tab4 |     | BT2  |
+            // |      |     |     |     |     |     |               | Tab5 | Tab6 | Tab7 | Tab8 |     | BT3  |
+            //                    |     |     |     |               |     |     |     |
             bindings = <
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans
-                                     &trans &trans &trans               &trans &trans &trans       
+                &trans &trans &trans &trans &trans &trans &trans &trans &kp C_PREV     &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT    &kp C_PP &bt BT_SEL 0
+                &trans &trans &trans &trans &trans &trans &trans &trans &kp LC(LA(N1)) &kp LC(LA(N2)) &kp LC(LA(N3)) &kp LC(LA(N4)) &trans   &bt BT_SEL 1
+                &trans &trans &trans &trans &trans &trans               &kp LC(LA(N5)) &kp LC(LA(N6)) &kp LC(LA(N7)) &kp LC(LA(N8)) &trans   &bt BT_SEL 2
+                                     &trans &trans &trans                      &trans   &trans    &trans
             >;
         };
 
