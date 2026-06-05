@@ -39,11 +39,13 @@ uv run --with pillow tools/convert_nice_view_art.py \
   --preview-dir /Users/philippvonbachmann/Documents/Codex/2026-06-05/i-have-a-new-corne-keyboard/outputs/atmos-nice-view-preview \
   --preview-inverted \
   --rotate 90 \
+  --safe-width 92 \
+  --margin 4 \
   "${IMAGES[@]}"
 ```
 
 The `--rotate 90` option compensates for the Corne right display mount. The
-converter also accepts `--rotate 180` or `--rotate 270` for other mounts.
+safe width keeps art out from under the battery/connection canvas.
 
 ## Disable custom widget
 

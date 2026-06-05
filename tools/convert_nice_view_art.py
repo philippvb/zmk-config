@@ -7,6 +7,8 @@ Run with uv, for example:
     --output-h boards/shields/nice_view_atmos/widgets/art.h \
     --preview-dir outputs/atmos-preview \
     --preview-inverted \
+    --safe-width 92 \
+    --margin 4 \
     path/to/image-1.png path/to/image-2.png
 """
 
@@ -69,6 +71,34 @@ def fit_to_canvas(path: Path, threshold: int, rotate: int) -> Image.Image:
     if mono.size != (WIDTH, HEIGHT):
         raise ValueError(f"rotated image has size {mono.size}, expected {(WIDTH, HEIGHT)}")
     return mono
+
+
+def constrain_to_safe_area(image: Image.Image, safe_width: int, margin: int) -> Image.Image:
+    if safe_width == WIDTH and margin == 0:
+        return image
+    if safe_width <= 0 or safe_width > WIDTH:
+        raise ValueError(f"safe width must be between 1 and {WIDTH}")
+    if margin < 0:
+        raise ValueError("margin must be non-negative")
+
+    max_width = safe_width - (margin * 2)
+    max_height = HEIGHT - (margin * 2)
+    if max_width <= 0 or max_height <= 0:
+        raise ValueError("margin leaves no drawable area")
+
+    line_mask = ImageOps.invert(image.convert("L"))
+    bbox = line_mask.getbbox()
+    if bbox is None:
+        return image
+
+    crop = image.crop(bbox)
+    crop.thumbnail((max_width, max_height), Image.Resampling.NEAREST)
+
+    safe_canvas = Image.new("1", (WIDTH, HEIGHT), 1)
+    x = margin + (max_width - crop.width) // 2
+    y = margin + (max_height - crop.height) // 2
+    safe_canvas.paste(crop, (x, y))
+    return safe_canvas
 
 
 def pack_indexed_1bit(image: Image.Image) -> list[int]:
@@ -181,6 +211,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--preview-inverted", action="store_true")
     parser.add_argument("--prefix", default="atmos")
     parser.add_argument("--rotate", choices=[0, 90, 180, 270], default=0, type=int)
+    parser.add_argument("--safe-width", default=WIDTH, type=int)
+    parser.add_argument("--margin", default=0, type=int)
     parser.add_argument("--threshold", default=220, type=int)
     return parser.parse_args()
 
@@ -203,6 +235,7 @@ def main() -> None:
         seen.add(name)
 
         mono = fit_to_canvas(image_path, args.threshold, args.rotate)
+        mono = constrain_to_safe_area(mono, args.safe_width, args.margin)
         frames.append((name, pack_indexed_1bit(mono)))
         if args.preview_dir:
             preview = mono.convert("L")
