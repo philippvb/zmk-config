@@ -96,10 +96,10 @@
             //                    |     |     |     |               |     |     |     |
 
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none  &kp C_PREV  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT  &kp C_PP  &bt BT_SEL 0
-&none  &none  &none  &none  &none  &none  &none  &none  &kp LG(N1)  &kp LG(N2)    &kp LG(N3)    &kp LG(N4)  &none     &bt BT_SEL 1
-&none  &none  &none  &none  &none  &none                &kp LG(N5)  &kp LG(N6)    &kp LG(N7)    &kp LG(N8)  &none     &bt BT_SEL 2
-                     &none  &none  &none                &none       &none         &none
+&none  &none  &none  &none  &none  &none  &none  &none  &kp C_PREV  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_NEXT  &kp C_PP  &bt BT_SEL 0
+&none  &none  &none  &none  &none  &none  &none  &none  &kp LG(N1)  &kp LG(N2)     &kp LG(N3)    &kp LG(N4)  &none     &bt BT_SEL 1
+&none  &none  &none  &none  &none  &none                &kp LG(N5)  &kp LG(N6)     &kp LG(N7)    &kp LG(N8)  &none     &bt BT_SEL 2
+                     &none  &none  &none                &kp ENTER   &kp BACKSPACE  &kp DELETE
             >;
         };
 
@@ -116,7 +116,7 @@
 &none  &none  &none  &none  &none  &none  &none  &none  &none           &none           &none           &none           &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &none  &none
 &none  &none  &none  &none  &none  &none                &kp LC(LA(N5))  &kp LC(LA(N6))  &kp LC(LA(N7))  &kp LC(LA(N8))  &none  &none
-                     &none  &none  &none                &none           &none           &none
+                     &none  &none  &none                &kp ENTER       &kp BACKSPACE   &kp DELETE
             >;
         };
     };
