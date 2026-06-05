@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
 
 #define DEFAULT 0
 #define NUMBER 1
@@ -97,13 +98,13 @@
             display-name = "CONTROLS";
 
             // -----------------------------------------------------------------------------------------
-            // |      |     |     |     |     |     |       |       | PREV | VOLD | VOLU | NEXT | PP  | BT1  |
+            // | RGB  |     |     |     |     |     |       |       | PREV | VOLD | VOLU | NEXT | PP  | BT1  |
             // |      |     |     |     |     |     |       |       |      | Cmd1 | Cmd2 | Cmd3 | Cmd4 | BT2  |
             // |      |     |     |     |     |     |               |      | Cmd5 | Cmd6 | Cmd7 | Cmd8 | BT3  |
             //                    |     |     |     |               |     |     |     |
 
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none  &kp C_PREV  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_NEXT  &kp C_PP  &bt BT_SEL 0
+&rgb_ug RGB_TOG  &none  &none  &none  &none  &none  &none  &none  &kp C_PREV  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_NEXT  &kp C_PP  &bt BT_SEL 0
 &none  &none  &none  &none  &none  &none  &none  &none  &none       &kp LG(N1)     &kp LG(N2)    &kp LG(N3)  &kp LG(N4)  &bt BT_SEL 1
 &none  &none  &none  &none  &none  &none                &none       &kp LG(N5)     &kp LG(N6)    &kp LG(N7)  &kp LG(N8)  &bt BT_SEL 2
                      &none  &none  &none                &kp ENTER   &kp BACKSPACE  &kp DELETE
