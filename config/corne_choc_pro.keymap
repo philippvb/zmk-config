@@ -9,6 +9,13 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/rgb.h>
 
+&mt {
+    flavor = "balanced";
+    tapping-term-ms = <180>;
+    quick-tap-ms = <150>;
+    require-prior-idle-ms = <125>;
+};
+
 / {
     chosen {
         zmk,physical-layout = &default_layout;
