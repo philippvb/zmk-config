@@ -7,6 +7,7 @@ Run with uv, for example:
     --output-h boards/shields/nice_view_atmos/widgets/art.h \
     --preview-dir outputs/atmos-preview \
     --preview-inverted \
+    --rotate 90 \
     path/to/image-1.png path/to/image-2.png
 """
 
@@ -34,26 +35,40 @@ def c_ident(path: Path, prefix: str) -> str:
     return f"{prefix}_{stem}"
 
 
-def fit_to_canvas(path: Path, threshold: int) -> Image.Image:
+def rasterize_to_canvas(path: Path, threshold: int, size: tuple[int, int]) -> Image.Image:
     src = Image.open(path).convert("RGBA")
-    src.thumbnail((WIDTH, HEIGHT), Image.Resampling.LANCZOS)
+    src.thumbnail(size, Image.Resampling.LANCZOS)
 
-    rgba = Image.new("RGBA", (WIDTH, HEIGHT), (255, 255, 255, 0))
-    x = (WIDTH - src.width) // 2
-    y = (HEIGHT - src.height) // 2
+    width, height = size
+    rgba = Image.new("RGBA", size, (255, 255, 255, 0))
+    x = (width - src.width) // 2
+    y = (height - src.height) // 2
     rgba.alpha_composite(src, (x, y))
 
     pixels = rgba.load()
-    mono = Image.new("1", (WIDTH, HEIGHT), 1)
+    mono = Image.new("1", size, 1)
     out = mono.load()
-    for py in range(HEIGHT):
-        for px in range(WIDTH):
+    for py in range(height):
+        for px in range(width):
             r, g, b, a = pixels[px, py]
             if a < 16:
                 out[px, py] = 1
                 continue
             lum = int(0.2126 * r + 0.7152 * g + 0.0722 * b)
             out[px, py] = 0 if lum < threshold else 1
+    return mono
+
+
+def fit_to_canvas(path: Path, threshold: int, rotate: int) -> Image.Image:
+    if rotate in {90, 270}:
+        mono = rasterize_to_canvas(path, threshold, (HEIGHT, WIDTH))
+    else:
+        mono = rasterize_to_canvas(path, threshold, (WIDTH, HEIGHT))
+
+    if rotate:
+        mono = mono.rotate(-rotate, expand=True)
+    if mono.size != (WIDTH, HEIGHT):
+        raise ValueError(f"rotated image has size {mono.size}, expected {(WIDTH, HEIGHT)}")
     return mono
 
 
@@ -166,6 +181,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--preview-dir", type=Path)
     parser.add_argument("--preview-inverted", action="store_true")
     parser.add_argument("--prefix", default="atmos")
+    parser.add_argument("--rotate", choices=[0, 90, 180, 270], default=0, type=int)
     parser.add_argument("--threshold", default=220, type=int)
     return parser.parse_args()
 
@@ -187,7 +203,7 @@ def main() -> None:
             counter += 1
         seen.add(name)
 
-        mono = fit_to_canvas(image_path, args.threshold)
+        mono = fit_to_canvas(image_path, args.threshold, args.rotate)
         frames.append((name, pack_indexed_1bit(mono)))
         if args.preview_dir:
             preview = mono.convert("L")

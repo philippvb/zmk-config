@@ -7,18 +7,48 @@
 
 #include <lvgl.h>
 
-LV_IMG_DECLARE(atmos_atmos_mark_head_generated_v1);
-LV_IMG_DECLARE(atmos_avatar_wave_v1);
-LV_IMG_DECLARE(atmos_avatar_explorer_v1);
-LV_IMG_DECLARE(atmos_avatar_observer_v1);
-LV_IMG_DECLARE(atmos_avatar_leader_v1);
+LV_IMG_DECLARE(atmos_avatar_wizard_color_v1);
+LV_IMG_DECLARE(atmos_avatar_detective_v1);
+LV_IMG_DECLARE(atmos_avatar_chef_v1);
+LV_IMG_DECLARE(atmos_avatar_dj_v1);
+LV_IMG_DECLARE(atmos_avatar_pirate_v1);
+LV_IMG_DECLARE(atmos_avatar_gardener_v1);
+LV_IMG_DECLARE(atmos_avatar_designer_v1);
+LV_IMG_DECLARE(atmos_avatar_security_v1);
+LV_IMG_DECLARE(atmos_avatar_engineer_v1);
+LV_IMG_DECLARE(atmos_avatar_scientist_v1);
+LV_IMG_DECLARE(atmos_avatar_support_v1);
+LV_IMG_DECLARE(atmos_avatar_legal_v1);
+LV_IMG_DECLARE(atmos_avatar_finance_v1);
+LV_IMG_DECLARE(atmos_avatar_operations_v1);
+LV_IMG_DECLARE(atmos_avatar_data_analyst_v1);
+LV_IMG_DECLARE(atmos_avatar_product_manager_v1);
+LV_IMG_DECLARE(atmos_avatar_writer_v1);
+LV_IMG_DECLARE(atmos_avatar_scheduler_v1);
+LV_IMG_DECLARE(atmos_avatar_email_v1);
+LV_IMG_DECLARE(atmos_avatar_automation_v1);
 
-#define ATMOS_ART_FRAME_COUNT 5
+#define ATMOS_ART_FRAME_COUNT 20
 
 static const lv_img_dsc_t *atmos_anim_imgs[] = {
-    &atmos_atmos_mark_head_generated_v1,
-    &atmos_avatar_wave_v1,
-    &atmos_avatar_explorer_v1,
-    &atmos_avatar_observer_v1,
-    &atmos_avatar_leader_v1,
+    &atmos_avatar_wizard_color_v1,
+    &atmos_avatar_detective_v1,
+    &atmos_avatar_chef_v1,
+    &atmos_avatar_dj_v1,
+    &atmos_avatar_pirate_v1,
+    &atmos_avatar_gardener_v1,
+    &atmos_avatar_designer_v1,
+    &atmos_avatar_security_v1,
+    &atmos_avatar_engineer_v1,
+    &atmos_avatar_scientist_v1,
+    &atmos_avatar_support_v1,
+    &atmos_avatar_legal_v1,
+    &atmos_avatar_finance_v1,
+    &atmos_avatar_operations_v1,
+    &atmos_avatar_data_analyst_v1,
+    &atmos_avatar_product_manager_v1,
+    &atmos_avatar_writer_v1,
+    &atmos_avatar_scheduler_v1,
+    &atmos_avatar_email_v1,
+    &atmos_avatar_automation_v1,
 };

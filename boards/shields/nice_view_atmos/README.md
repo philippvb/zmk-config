@@ -9,17 +9,37 @@ This shield requires that an `&nice_view_spi` labeled SPI bus is provided with _
 The right-half slideshow art is generated from source images with Pillow via `uv`:
 
 ```sh
-ATMOS="/Users/philippvonbachmann/Documents/atmos/atmOS/apps/web/public/images/mascot/alpha"
+AGENT="/Users/philippvonbachmann/Documents/atmos/atmOS/apps/web/public/images/mascot/agent-builder"
+IMAGES=(
+  "$AGENT/avatar-wizard-color-v1.png"
+  "$AGENT/avatar-detective-v1.png"
+  "$AGENT/avatar-chef-v1.png"
+  "$AGENT/avatar-dj-v1.png"
+  "$AGENT/avatar-pirate-v1.png"
+  "$AGENT/avatar-gardener-v1.png"
+  "$AGENT/avatar-designer-v1.png"
+  "$AGENT/avatar-security-v1.png"
+  "$AGENT/avatar-engineer-v1.png"
+  "$AGENT/avatar-scientist-v1.png"
+  "$AGENT/avatar-support-v1.png"
+  "$AGENT/avatar-legal-v1.png"
+  "$AGENT/avatar-finance-v1.png"
+  "$AGENT/avatar-operations-v1.png"
+  "$AGENT/avatar-data-analyst-v1.png"
+  "$AGENT/avatar-product-manager-v1.png"
+  "$AGENT/avatar-writer-v1.png"
+  "$AGENT/avatar-scheduler-v1.png"
+  "$AGENT/avatar-email-v1.png"
+  "$AGENT/avatar-automation-v1.png"
+)
+
 uv run --with pillow tools/convert_nice_view_art.py \
   --output-c boards/shields/nice_view_atmos/widgets/art.c \
   --output-h boards/shields/nice_view_atmos/widgets/art.h \
   --preview-dir /Users/philippvonbachmann/Documents/Codex/2026-06-05/i-have-a-new-corne-keyboard/outputs/atmos-nice-view-preview \
   --preview-inverted \
-  "$ATMOS/atmos-mark-head-generated-v1.png" \
-  "$ATMOS/avatar-wave-v1.png" \
-  "$ATMOS/avatar-explorer-v1.png" \
-  "$ATMOS/avatar-observer-v1.png" \
-  "$ATMOS/avatar-leader-v1.png"
+  --rotate 90 \
+  "${IMAGES[@]}"
 ```
 
 ## Disable custom widget
