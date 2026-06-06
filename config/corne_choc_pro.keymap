@@ -41,10 +41,10 @@
             //                    | ESC/L5 | SPC | TAB/L4 |        | ENT/L1 | BSPC/L2 | DEL |
 
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E       &kp R        &kp T      &kp C_MUTE  &kp C_PP  &kp Y      &kp U       &kp I      &kp O    &kp P     &to GAMING
-&kp CAPS        &mt LCTRL A  &mt LALT S  &mt LEFT_COMMAND D  &mt LSHIFT F  &kp G      &kp LALT    &none     &kp H      &mt RSHFT J  &mt RIGHT_COMMAND K  &mt RIGHT_ALT L  &mt RIGHT_CONTROL SEMI  &kp LC(LS(GRAVE))
-&kp LSHFT       &kp Z  &kp X  &kp C       &kp V        &kp B                            &kp N      &kp M       &kp COMMA  &kp DOT  &kp MINUS  &kp LG(GRAVE)
-                              &kp ESCAPE  &lt 5 SPACE  &lt 4 TAB                        &lt 1 RET  &lt 2 BSPC  &kp DEL
+&kp TAB    &kp Q        &kp W       &kp E               &kp R         &kp T      &kp C_MUTE  &kp C_PP  &kp Y      &kp U        &kp I                &kp O            &kp P                   &to GAMING
+&kp CAPS   &mt LCTRL A  &mt LALT S  &mt LEFT_COMMAND D  &mt LSHIFT F  &kp G      &kp LALT    &none     &kp H      &mt RSHFT J  &mt RIGHT_COMMAND K  &mt RIGHT_ALT L  &mt RIGHT_CONTROL SEMI  &kp LC(LS(GRAVE))
+&kp LSHFT  &kp Z        &kp X       &kp C               &kp V         &kp B                            &kp N      &kp M        &kp COMMA            &kp DOT          &kp MINUS               &kp LG(GRAVE)
+                                    &kp ESCAPE          &lt 5 SPACE   &lt 4 TAB                        &lt 1 RET  &lt 2 BSPC   &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -105,9 +105,9 @@
 
             bindings = <
 &rgb_ug RGB_TOG  &none  &none  &none  &none  &none  &none  &none  &kp C_PREV  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_NEXT  &kp C_PP  &bt BT_SEL 0
-&none  &none  &none  &none  &none  &none  &none  &none  &none       &kp LEFT       &kp DOWN      &kp UP      &kp RIGHT   &bt BT_SEL 1
-&none  &none  &none  &none  &none  &none                &none       &none          &none         &none       &none       &bt BT_SEL 2
-                     &none  &none  &none                &kp ENTER   &kp BACKSPACE  &kp DELETE
+&none            &none  &none  &none  &none  &none  &none  &none  &kp LEFT    &kp DOWN       &kp UP_ARROW  &kp RIGHT   &none     &bt BT_SEL 1
+&none            &none  &none  &none  &none  &none                &none       &none          &none         &none       &none     &bt BT_SEL 2
+                               &none  &none  &none                &kp ENTER   &kp BACKSPACE  &kp DELETE
             >;
         };
 
@@ -121,10 +121,10 @@
             //                    |     |     |     |               |     |     |     |
 
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none  &none           &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &kp LC(LS(GRAVE))
-&none  &none  &none  &none  &none  &none  &none  &none  &none           &kp LG(N1)      &kp LG(N2)      &kp LG(N3)      &kp LG(N4)  &kp LG(GRAVE)
-&none  &none  &none  &none  &none  &none                &none           &kp LG(N5)      &kp LG(N6)      &kp LG(N7)      &kp LG(N8)  &none
-                     &none  &none  &none                &kp ENTER       &kp BACKSPACE   &kp DELETE
+&none  &none  &none  &none  &none  &none  &none  &none  &none      &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &kp LC(LS(GRAVE))
+&none  &none  &none  &none  &none  &none  &none  &none  &none      &kp LG(N1)      &kp LG(N2)      &kp LG(N3)      &kp LG(N4)      &kp LG(GRAVE)
+&none  &none  &none  &none  &none  &none                &none      &kp LG(N5)      &kp LG(N6)      &kp LG(N7)      &kp LG(N8)      &none
+                     &none  &none  &none                &kp ENTER  &kp BACKSPACE   &kp DELETE
             >;
         };
     };
