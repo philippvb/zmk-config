@@ -41,7 +41,7 @@
             //                    | ESC/L5 | SPC | TAB/L4 |        | ENT/L1 | BSPC/L2 | DEL |
 
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E       &kp R        &kp T      &kp C_MUTE  &kp C_PP  &kp Y      &kp U       &kp I      &kp O    &kp P     &tog GAMING
+&kp TAB         &kp Q  &kp W  &kp E       &kp R        &kp T      &kp C_MUTE  &kp C_PP  &kp Y      &kp U       &kp I      &kp O    &kp P     &to GAMING
 &kp CAPS        &mt LCTRL A  &mt LALT S  &mt LEFT_COMMAND D  &mt LSHIFT F  &kp G      &kp LALT    &none     &kp H      &mt RSHFT J  &mt RIGHT_COMMAND K  &mt RIGHT_ALT L  &mt RIGHT_CONTROL SEMI  &kp LC(LS(GRAVE))
 &kp LSHFT       &kp Z  &kp X  &kp C       &kp V        &kp B                            &kp N      &kp M       &kp COMMA  &kp DOT  &kp MINUS  &kp LG(GRAVE)
                               &kp ESCAPE  &lt 5 SPACE  &lt 4 TAB                        &lt 1 RET  &lt 2 BSPC  &kp DEL
@@ -87,7 +87,7 @@
         Gaming {
             display-name = "GAMING";
             bindings = <
-&kp TAB         &kp Q  &kp W  &kp E         &kp R      &kp T  &none  &none  &kp C_PREV  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &none  &tog GAMING
+&kp TAB         &kp Q  &kp W  &kp E         &kp R      &kp T  &none  &none  &kp C_PREV  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &none  &to DEFAULT
 &kp LEFT_SHIFT  &kp A  &kp S  &kp D         &kp F      &kp G  &none  &none  &kp H       &none              &none            &none       &none  &none
 &kp LEFT_GUI    &kp Z  &kp X  &kp C         &kp V      &none                &none       &none              &none            &none       &none  &none
                               &kp LEFT_ALT  &kp SPACE  &none                &none       &none              &none
@@ -99,14 +99,14 @@
 
             // -----------------------------------------------------------------------------------------
             // | RGB  |     |     |     |     |     |       |       | PREV | VOLD | VOLU | NEXT | PP  | BT1  |
-            // |      |     |     |     |     |     |       |       |      | Cmd1 | Cmd2 | Cmd3 | Cmd4 | BT2  |
-            // |      |     |     |     |     |     |               |      | Cmd5 | Cmd6 | Cmd7 | Cmd8 | BT3  |
+            // |      |     |     |     |     |     |       |       |      | LFT  | DWN  |  UP  | RGT | BT2  |
+            // |      |     |     |     |     |     |               |      |      |      |      |     | BT3  |
             //                    |     |     |     |               |     |     |     |
 
             bindings = <
 &rgb_ug RGB_TOG  &none  &none  &none  &none  &none  &none  &none  &kp C_PREV  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_NEXT  &kp C_PP  &bt BT_SEL 0
-&none  &none  &none  &none  &none  &none  &none  &none  &none       &kp LG(N1)     &kp LG(N2)    &kp LG(N3)  &kp LG(N4)  &bt BT_SEL 1
-&none  &none  &none  &none  &none  &none                &none       &kp LG(N5)     &kp LG(N6)    &kp LG(N7)  &kp LG(N8)  &bt BT_SEL 2
+&none  &none  &none  &none  &none  &none  &none  &none  &none       &kp LEFT       &kp DOWN      &kp UP      &kp RIGHT   &bt BT_SEL 1
+&none  &none  &none  &none  &none  &none                &none       &none          &none         &none       &none       &bt BT_SEL 2
                      &none  &none  &none                &kp ENTER   &kp BACKSPACE  &kp DELETE
             >;
         };
@@ -115,15 +115,15 @@
             display-name = "KITTY";
 
             // -----------------------------------------------------------------------------------------
-            // |      |     |     |     |     |     |       |       |      |      |      |      |     |      |
-            // |      |     |     |     |     |     |       |       |      | Tab1 | Tab2 | Tab3 | Tab4 |      |
-            // |      |     |     |     |     |     |               |      | Tab5 | Tab6 | Tab7 | Tab8 |      |
+            // |      |     |     |     |     |     |       |       |      | Tab1 | Tab2 | Tab3 | Tab4 | KWin |
+            // |      |     |     |     |     |     |       |       |      | Cmd1 | Cmd2 | Cmd3 | Cmd4 | OSWin |
+            // |      |     |     |     |     |     |               |      | Cmd5 | Cmd6 | Cmd7 | Cmd8 |      |
             //                    |     |     |     |               |     |     |     |
 
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &none  &none           &none           &none           &none           &none  &none
-&none  &none  &none  &none  &none  &none  &none  &none  &none           &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &none
-&none  &none  &none  &none  &none  &none                &none           &kp LC(LA(N5))  &kp LC(LA(N6))  &kp LC(LA(N7))  &kp LC(LA(N8))  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none           &kp LC(LA(N1))  &kp LC(LA(N2))  &kp LC(LA(N3))  &kp LC(LA(N4))  &kp LC(LS(GRAVE))
+&none  &none  &none  &none  &none  &none  &none  &none  &none           &kp LG(N1)      &kp LG(N2)      &kp LG(N3)      &kp LG(N4)  &kp LG(GRAVE)
+&none  &none  &none  &none  &none  &none                &none           &kp LG(N5)      &kp LG(N6)      &kp LG(N7)      &kp LG(N8)  &none
                      &none  &none  &none                &kp ENTER       &kp BACKSPACE   &kp DELETE
             >;
         };
