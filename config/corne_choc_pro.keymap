@@ -60,10 +60,10 @@
             //                    |     |  0  |  /    |        | ENT   | BSPC |     |
 
             bindings = <
-&none  &kp LBKT   &kp N7  &kp N8  &kp N9  &kp RBKT   &none  &none  &none    &none       &none              &none          &none              &none
-&none  &kp SEMI   &kp N4  &kp N5  &kp N6  &kp EQUAL  &none  &none  &none    &kp LSHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &none
-&none  &kp GRAVE  &kp N1  &kp N2  &kp N3  &kp BSLH                 &none    &none       &none              &none          &none              &none
-                          &none   &kp N0  &kp SLASH                &kp RET  &kp BSPC    &kp DELETE
+&none  &kp LBKT          &kp N7  &kp N8  &kp N9  &kp RBKT   &none  &none  &none    &none       &none              &none          &none              &none
+&none  &kp SINGLE_QUOTE  &kp N4  &kp N5  &kp N6  &kp EQUAL  &none  &none  &none    &kp LSHIFT  &kp RIGHT_COMMAND  &kp RIGHT_ALT  &kp RIGHT_CONTROL  &none
+&none  &kp GRAVE         &kp N1  &kp N2  &kp N3  &kp BSLH                 &none    &none       &none              &none          &none              &none
+                                 &none   &kp N0  &kp SLASH                &kp RET  &kp BSPC    &kp DELETE
             >;
         };
 
